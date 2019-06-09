@@ -1,0 +1,26 @@
+{
+  "name": "linkedhashmap",
+  "version": "1.0.0",
+  "description": "a linked hashmap",
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_PATH=. node_modules/mocha/bin/mocha",
+    "tdd": "NODE_PATH=. node_modules/mocha/bin/mocha --watch",
+    "debug": "NODE_PATH=. node_modules/mocha/bin/mocha --nolazy --inspect-brk=9229"
+  },
+  "author": "emile salem",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4",
+    "standard": "^12.0.1"
+  },
+  "standard": {
+    "globals": [
+      "describe",
+      "it",
+      "expect",
+      "beforeEach"
+    ]
+  }
+}

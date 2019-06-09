@@ -1,0 +1,4 @@
+{
+    "standard.usePackageJson": true,
+    "javascript.validate.enable": false
+}
