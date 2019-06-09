@@ -24,6 +24,20 @@ describe('linked hash map', () => {
     expect(lhm.previous(2)).to.equal(1)
   })
 
+  it('should get from head', () => {
+    expect(lhm.get()).to.equal(1)
+  })
+
+  it('should get from head - forward', () => {
+    expect(lhm.get(null, 1)).to.equal(2)
+  })
+
+  it('should get - backwards', () => {
+    expect(lhm.get(null, -1)).to.equal(4)
+
+    expect(lhm.get(null, -10)).to.equal(3)
+  })
+
   it('should get from', () => {
     expect(lhm.get(2)).to.equal(2)
   })
@@ -31,7 +45,7 @@ describe('linked hash map', () => {
   it('should get from - forward', () => {
     expect(lhm.get(2, 2)).to.equal(4)
 
-    expect(lhm.get(2, 7)).to.equal(4)
+    expect(lhm.get(2, 7)).to.equal(1)
   })
 
   it('should get from - backward', () => {
@@ -50,10 +64,6 @@ describe('linked hash map', () => {
 
   it('should deal with wrong type', () => {
     expect(lhm.get(2, 'b')).to.equal(2)
-
-    expect(lhm.get(undefined)).to.equal(undefined)
-
-    expect(lhm.get(undefined, 3)).to.equal(undefined)
   })
 
   it('should pop', () => {
