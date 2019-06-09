@@ -9,7 +9,7 @@ function create (values) {
     let result = hashMap[value]
 
     if (!result) {
-      return
+      result = n < 0 ? _tail() : _head()
     }
     if (!n || typeof n !== 'number') {
       return result.value
@@ -94,6 +94,17 @@ function create (values) {
 
     if (nodes.length) {
       result = nodes[nodes.length - 1]
+    }
+    return result
+  }
+
+  function _head () {
+    const nodes = Object.values(hashMap)
+
+    let result
+
+    if (nodes.length) {
+      result = nodes[0]
     }
     return result
   }

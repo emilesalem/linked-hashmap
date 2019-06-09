@@ -2,18 +2,18 @@
 
 ## get
 ```
-  linkedHashmap.get(value, offset)
+linkedHashmap.get([value], offset)
 ```
 ### Parameters
-- value: the value to start from
-- offset: the offset to get to the value offsetted from the value given as first parameter (if positive will navigate from the value given to the next, if negative will navigate from value given to previous)
+- value: the value to start from, if ommitted will start from head if offset is positive, tail if offset is negative
+- offset: the number offset to get to the value offsetted from the value given as first parameter (if positive will navigate from the value given to the next, if negative will navigate from value given to previous)
 
 ### Return value
     the value retrieved
 
 ## put
 ```
-  linkedHashmap.put(value, [next])
+linkedHashmap.put(value, [next])
 ```
 ### Parameters
 - value: the value to add to the map
@@ -21,7 +21,7 @@
 
 ## pop
 ```
-    linkedHashmap.pop([value])
+linkedHashmap.pop([value])
 ```
 ### Parameters
 - value: the value to pop from the map
@@ -30,7 +30,7 @@
 
 ## next
 ```
-    linkedHashmap.next(value)
+linkedHashmap.next(value)
 ```
 ### Parameters
 - value: the value from which to get the next
@@ -40,7 +40,7 @@
 
 ## previous
 ```
-    linkedHashmap.previous(value)
+linkedHashmap.previous(value)
 ```
 ### Parameters
 - value: the value from which to get the previous
@@ -49,7 +49,7 @@
 
 ## size
 ```
-    linkedHashmap.size()
+linkedHashmap.size()
 ```
 ### Return value
     number of elements in the linked hashmap
