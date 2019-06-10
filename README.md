@@ -6,7 +6,7 @@ exports a function to create a linked hashmap. The creator function accepts opti
 linkedHashmap.get([value], offset)
 ```
 ### Parameters
-- value: the value to start from, if ommitted will start from head if offset is positive, tail if offset is negative
+- value: the value to start from, if ommitted will start from head
 - offset: the number offset to get to the value offsetted from the value given as first parameter (if positive will navigate from the value given to the next, if negative will navigate from value given to previous)
 
 ### Return value
