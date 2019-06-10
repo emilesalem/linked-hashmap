@@ -55,7 +55,7 @@ describe('linked hash map', () => {
   })
 
   it('should put in position', () => {
-    lhm.put(2.5, 3)
+    lhm.set(2.5, 3)
 
     expect(lhm.get(2.5, 1)).to.equal(3)
 

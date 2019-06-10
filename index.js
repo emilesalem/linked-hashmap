@@ -1,5 +1,5 @@
 function create (values) {
-  const hashMap = {}
+  const map = new Map()
 
   const tail = {}
 
@@ -13,14 +13,14 @@ function create (values) {
   tail.prev = head
 
   if (values) {
-    values.forEach(v => put(v))
+    values.forEach(v => set(v))
   }
 
   function get (value, n) {
-    let result = hashMap[value]
+    let result = value !== undefined && value !== null ? map.get(value) : head.next
 
     if (!result) {
-      result = head.next
+      return
     }
     if (!n || typeof n !== 'number') {
       return result.value
@@ -47,26 +47,25 @@ function create (values) {
     if (value === undefined || value === null) {
       value = tail.prev && tail.prev.value
     }
-    const result = hashMap[value]
+    const result = map.get(value)
 
     if (!result) {
       return
     }
-
     result.next.prev = result.prev
 
     result.prev.next = result.next
 
-    delete hashMap[value]
+    map.delete(value)
 
     return result && result.value
   }
 
   function next (value) {
-    if (hashMap[value] === undefined || hashMap[value] === null) {
+    if (!map.has(value)) {
       return
     }
-    let nextNode = hashMap[value].next
+    let nextNode = map.get(value).next
 
     if (nextNode === tail) {
       nextNode = head.next
@@ -75,28 +74,26 @@ function create (values) {
   }
 
   function previous (value) {
-    if (hashMap[value] === undefined || hashMap[value] === null) {
+    if (!map.has(value)) {
       return
     }
-    let previousNode = hashMap[value].prev
+    let previousNode = map.get(value).prev
 
     if (previousNode === head) {
       previousNode = tail.prev
     }
-
     return previousNode ? previousNode.value : null
   }
 
   function size () {
-    return Object.keys(hashMap).length
+    return map.size
   }
 
-  function put (value, next) {
+  function set (value, next) {
     const newNode = {
       value
     }
-
-    const nextNode = hashMap[next]
+    const nextNode = map.get(next)
 
     if (nextNode) {
       nextNode.prev.next = newNode
@@ -115,21 +112,30 @@ function create (values) {
 
       tail.prev = newNode
     }
-    hashMap[value] = newNode
+    map.set(value, newNode)
   }
 
   function toString () {
-    return Object.values(hashMap).map(v => v.value).join()
+    return map.toString()
+  }
+
+  function clear () {
+    map.clear()
+    tail.next = head
+    tail.prev = head
+    head.next = tail
+    head.prev = tail
   }
 
   return {
     get,
-    put,
+    set,
     pop,
     next,
     previous,
     size,
-    toString
+    toString,
+    clear
   }
 }
 
