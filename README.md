@@ -12,9 +12,9 @@ linkedHashmap.get([value], offset)
 ### Return value
     the value retrieved
 
-## put
+## set
 ```
-linkedHashmap.put(value, [next])
+linkedHashmap.set(value, [next])
 ```
 ### Parameters
 - value: the value to add to the map
