@@ -1,5 +1,5 @@
 # linked hashmap
-exports a function to create a linked hashmap. The creator function accepts optional array arguments holding the values to start with.
+exports a function to create a linked hashmap. The creator function accepts an optional array argument holding the values to start with.
 
 ## get
 ```
